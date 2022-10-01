@@ -1,7 +1,7 @@
 <section class="cards-content">
   <div class="card-container">
     <ng-container *ngFor="let crypto of allListedCrypto;">
-      <app-card [card]="{ imgSrc: crypto.imgSrc, name: crypto.name }"
+      <app-card [card]="{ id: crypto.ranking, imgSrc: crypto.imgSrc, name: crypto.name }"
                 [backgroundColor]="'#fafafa'"
                 [foregroundColor]="'black'"
                 [hoverBackgroundColor]="'lightblue'"
@@ -10,8 +10,7 @@
                 [height]="250"
                 routerLink="/asset-crypto/crypto/{{ crypto.ranking }}"
       >
-        <!-- <h5 style="margin:0;">Price (USD): {{ crypto.value | currency }}</h5> -->
-        <h5>Price (INR): {{ (crypto.value * 75) | currency : 'INR' : 'symbol': '1.0' : 'en-IN' }}</h5>
+        <h6>Price (INR): {{ (crypto.value * 75) | currency : 'INR' : 'symbol': '1.0' : 'en-IN' }}</h6>
       </app-card>
     </ng-container>
   </div>
