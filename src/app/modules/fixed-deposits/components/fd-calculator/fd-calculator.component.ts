@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormControl, UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { CustomerType, FDTenure, FDType } from '../../model/fd-enums';
 import { FixedDeposit } from '../../model/fixed-deposit';
 
@@ -10,10 +10,10 @@ import { FixedDeposit } from '../../model/fixed-deposit';
 })
 export class FdCalculatorComponent implements OnInit {
   currentDate = new Date();
-  fdDetailsForm!: FormGroup;
+  fdDetailsForm!: UntypedFormGroup;
   newFD!: FixedDeposit;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: UntypedFormBuilder) { }
 
   ngOnInit(): void {
     this.newFD = new FixedDeposit(CustomerType.Normal, FDType.Cumulative, this.currentDate, 10000, FDTenure.YearsMonthsDays, 1, 0, 0);
