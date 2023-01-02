@@ -8,8 +8,8 @@ export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: LandingPageComponent },
   {
-    path: 'asset-crypto',
-    loadChildren: () => import('./modules/crypto/crypto.module').then(m => m.CryptoModule)
+    path: 'asset-mutual-funds',
+    loadChildren: () => import('./modules/mutual-funds/mutual-funds.module').then(m => m.MutualFundsModule)
   },
   {
     path: 'asset-fd',
