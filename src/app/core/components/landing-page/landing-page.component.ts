@@ -23,6 +23,9 @@ export class LandingPageComponent implements OnInit {
 
   navigateToAssetPage(cardName: string) {
     switch ( cardName ) {
+      case Assets.MutualFunds:
+        this.router.navigateByUrl('/asset-mutual-funds');
+        break;
       case Assets.Crypto:
         this.router.navigateByUrl('/asset-crypto');
         break;
