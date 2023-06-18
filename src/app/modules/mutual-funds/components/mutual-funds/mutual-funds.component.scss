@@ -3,3 +3,57 @@
   font-size: large;
   padding: 10px;
 }
+
+.main-content {
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  padding-bottom: 16px;
+}
+
+.row-inner {
+  max-width: 1132px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin: 0px auto;
+}
+
+.bg-apricot {
+  background: #F9F8F3;
+}
+
+.cal-tax-exemption {
+  padding: 25px 0px 15px;
+  position: relative;
+  z-index: 9;
+}
+
+.tax-form-heading {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.justify-content-between {
+  -webkit-box-pack: justify !important;
+  -ms-flex-pack: justify !important;
+  justify-content: space-between !important;
+}
+
+.row-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.section-title-sm {
+  font-size: 22px;
+  line-height: 26px;
+  margin: 10px 0px 15px;
+  color: var(--black90);
+  font-family: 'cabinet-grotesk-bold';
+}
