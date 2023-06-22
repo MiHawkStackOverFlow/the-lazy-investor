@@ -1,20 +1,23 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
 import { Router } from '@angular/router';
 import { Card } from '../../../shared/model/card';
 import { Assets } from '../../../shared/model/assets';
 import { assets, liabilities } from '../../../shared/model/assets-and-liabilities';
+import { CardComponent } from 'src/app/shared/components/card/card.component';
 
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']
 })
-export class LandingPageComponent implements OnInit {
+export class LandingPageComponent implements OnInit, AfterViewInit {
   // Data
   allAssets: Card[] = [];
   allLiabilities: Card[] = [];
 
-  constructor(private router: Router) { }
+  @ViewChildren(CardComponent) private cardChildren!: QueryList<CardComponent>;
+
+  constructor(private router: Router, private renderer: Renderer2) { }
 
   ngOnInit() {
     this.allAssets = assets;
@@ -38,6 +41,12 @@ export class LandingPageComponent implements OnInit {
       default:
         break;
     }
+  }
+
+  ngAfterViewInit(): void {
+    this.cardChildren.forEach(item => {
+      console.log('test', item.card.name);
+    })
   }
 
 }

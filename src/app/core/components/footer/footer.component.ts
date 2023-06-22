@@ -22,4 +22,7 @@ export class FooterComponent implements OnInit {
     this.goToGithub.emit(value);
   }
 
+  changeTitle(name: string) {
+    this.footerTitle = name;
+  }
 }

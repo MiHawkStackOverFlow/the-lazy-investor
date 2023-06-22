@@ -6,12 +6,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MyHighlightDirective } from './directives/my-highlight.directive';
 import { CardComponent } from './components/card/card.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { UppercasePipe } from './pipes/uppercase.pipe';
 
 @NgModule({
   declarations: [
     CardComponent,
     MyHighlightDirective,
-    SpinnerComponent
+    SpinnerComponent,
+    UppercasePipe
   ],
   imports: [
     CommonModule,

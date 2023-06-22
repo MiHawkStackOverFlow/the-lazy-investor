@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription, timer } from 'rxjs';
 import { Card } from './shared/model/card';
 import { assets, liabilities } from './shared/model/assets-and-liabilities';
 import { SpinnerService } from './shared/services/spinner.service';
 
 import { Router, Event as RouterEvent, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
+import { FooterComponent } from './core/components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   // Properties
   myHeaderTitle = 'Loading Header ...';
   myFooterTitle = 'Love Financial Tips ?';
+  @ViewChild(FooterComponent) private footerComponent!: FooterComponent;
 
   // Observables
   timer!: Subscription;
@@ -57,6 +59,14 @@ export class AppComponent implements OnInit {
         this.spinner.stop();
       }, 2000);
     }
+  }
+
+  changeFooterTitle() {
+    this.footerComponent.changeTitle('Parent Changed Me. ');
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => this.changeFooterTitle(), 5000);
   }
 
   ngOnDestroy() {

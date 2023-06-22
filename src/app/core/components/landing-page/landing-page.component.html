@@ -1,5 +1,5 @@
 <section class="content">
-  <!-- Assets -->
+  <!-- liabilitiess -->
   <h2>Assets</h2>
   <h3 style="padding: 5px;" appMyHighlight [backgroundColor]="'lightblue'" [foregroundColor]="'black'" [hoverBackgroundColor]="'lightblue'" [hoverForegroundColor]="'black'">Assets put money in your pocket.</h3>
   <h4 style="padding: 5px; background-color: #E9EAE0;">It is advisable to focus on making assets grow as much as possible and put money here. </h4>
@@ -24,8 +24,10 @@
   <input type="hidden" #selection>
 
   <div class="card-container">
-    <ng-container *ngFor="let asset of allLiabilities;">
-      <app-card [card]="asset" [backgroundColor]="'#fafafa'" [foregroundColor]="'black'" [hoverBackgroundColor]="'#FF8A8A'" [hoverForegroundColor]="'black'"></app-card>
+    <ng-container *ngFor="let liability of allLiabilities;">
+      <app-card [card]="liability" [backgroundColor]="'#fafafa'" [foregroundColor]="'black'" [hoverBackgroundColor]="'#FF8A8A'" [hoverForegroundColor]="'black'">
+        <p *ngIf="liability.name === 'Car'">(Fuel and Maintenance)</p>
+      </app-card>
     </ng-container>
   </div>
 </section>
